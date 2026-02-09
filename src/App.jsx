@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
-// import AboutSection from "./components/AboutSection";
+import AboutSection from "./components/AboutSection";
 // import ServicesSection from "./components/ServicesSection";
 // import PortfolioSection from "./components/PortfolioSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <Navbar />
       <HeroSection />
-      {/* <AboutSection />
-      <ServicesSection />
+      <AboutSection />
+      {/* <ServicesSection />
       <PortfolioSection />
       <TestimonialsSection />
       <PartnersSection />
