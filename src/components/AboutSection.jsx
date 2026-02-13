@@ -42,15 +42,15 @@ const AboutSection = () => {
                     />
 
                     {/* Dark Overlay */}
-                    <div className="absolute inset-0 bg-black/50"></div>
+                    <div className="absolute inset-0 bg-black/60"></div>
 
                     {/* Text Content */}
                     <div className="relative z-10 text-center px-6">
-                        <h2 className="text-white text-3xl sm:text-4xl font-bold mb-6 leading-tight uppercase">
-                            <span className="block">I TELL THE <span className="bg-gradient-to-r from-[#C89968] to-[#D4A574] bg-clip-text text-transparent">STORY</span> OF</span>
+                        <h2 className="text-white text-3xl sm:text-4xl font-bold mb-6 leading-tight uppercase drop-shadow-2xl">
+                            <span className="block">WE TELL THE <span className="bg-gradient-to-r from-[#C89968] to-[#D4A574] bg-clip-text text-transparent">STORY</span> OF</span>
                             <span className="block mt-2">THE <span className="bg-gradient-to-r from-[#C89968] to-[#D4A574] bg-clip-text text-transparent">TIME.</span></span>
                         </h2>
-                        <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-md mx-auto">
+                        <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-md mx-auto drop-shadow-lg">
                             A professional landscape, still-life, and
                             architectural photographer. I would
                             love to share my experience with you.
@@ -127,18 +127,20 @@ const AboutSection = () => {
                 {/* Left Side - video and Text */}
                 <div className="relative overflow-hidden bg-black flex items-start">
                     <div className="relative z-10 text-center pl-20 pr-30 pt-16 max-w-xl translate-x-28">
-                        <h2 className="text-white text-5xl lg:text-4xl font-bold mb-8 leading-tight uppercase text-center">
-                            <span className="block">I TELL THE <span className="bg-gradient-to-r from-[#C89968] to-[#D4A574] bg-clip-text text-transparent">STORY</span> OF</span>
+                        <h2 className="text-white text-5xl lg:text-4xl font-bold mb-8 leading-tight uppercase text-center drop-shadow-2xl">
+                            <span className="block">WE TELL THE <span className="bg-gradient-to-r from-[#C89968] to-[#D4A574] bg-clip-text text-transparent">STORY</span> OF</span>
                             <span className="block">
                                 <span className="translate-x-12">THE <span className="bg-gradient-to-r from-[#C89968] to-[#D4A574] bg-clip-text text-transparent">TIME.</span></span>
                             </span>
                         </h2>
-                        <p className="text-[#A8A8A8] text-base leading-relaxed">
+                        <p className="text-[#A8A8A8] text-base leading-relaxed drop-shadow-lg">
                             A professional landscape, still-life, and<br />
                             architectural photographer. I would<br />
                             love to share my experience with you.
                         </p>
                     </div>
+
+                    <div className="absolute inset-0 bg-black/30 z-0"></div>
 
                     {/* Photographer Video */}
                     <video

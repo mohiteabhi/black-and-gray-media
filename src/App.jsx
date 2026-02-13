@@ -1,15 +1,16 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 // import ServicesSection from "./components/ServicesSection";
-// import PortfolioSection from "./components/PortfolioSection";
-// import TestimonialsSection from "./components/TestimonialsSection";
+import PortfolioSection from "./components/PortfolioSection";
+import TestimonialsSection from "./components/TestimonialsSection";
 // import PartnersSection from "./components/PartnersSection";
-// import StatsSection from "./components/StatsSection";
-// import CTASection from "./components/CTASection";
-// import Footer from "./components/Footer";
+import StatsSection from "./components/StatsSection";
+import CTASection from "./components/CTASection";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,13 +18,13 @@ function App() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      {/* <ServicesSection />
+      {/* <ServicesSection /> */}
       <PortfolioSection />
       <TestimonialsSection />
-      <PartnersSection />
+      {/* <PartnersSection /> */}
       <StatsSection />
       <CTASection />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Send } from 'lucide-react';
 import { Button } from './ui/button';
-import heroImage from "@/assets/hero-img-pc-c.png";
+import heroImage from "@/assets/hero-img-d.jpg";
 
 const HeroSection = () => {
   return (

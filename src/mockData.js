@@ -3,83 +3,102 @@ import weddingImg from "./assets/serviceGrid/service_grid_weeding.png";
 import studioImg from "./assets/serviceGrid/service_grid_studio.png";
 import productVid from "./assets/serviceGrid/services_product.mp4";
 import servicesVid from "./assets/serviceGrid/services_video.mp4";
+import portrait1 from "./assets/portfolio/portrait_1.jpg";
+import portrait2 from "./assets/portfolio/portrait_2.jpg";
+import portrait3 from "./assets/portfolio/portrait_3.jpg";
+import portrait4 from "./assets/portfolio/portrait_4.png";
+import portrait5 from "./assets/portfolio/portrait_5.png";
+import portrait6a from "./assets/portfolio/portrait_6a.webp"; //weeding
+import portrait6b from "./assets/portfolio/portrait_6b.jpg";
+import abstract1 from "./assets/portfolio/abstract_1.jpg";
+import abstract5 from "./assets/portfolio/abstract_5.jpg";
+import abstract3 from "./assets/portfolio/abstract_3.jpg";
+import abstract4 from "./assets/portfolio/abstract_4.jpg";
+import weeding1 from "./assets/portfolio/weeding_1.jpg";
+import weeding2 from "./assets/portfolio/weeding_2.jpg";
+import weeding3 from "./assets/portfolio/weeding_3.webp";
+import weeding4 from "./assets/portfolio/weeding_4.webp";
+import weeding5 from "./assets/portfolio/weeding_5.jpg";
+import nature1 from "./assets/portfolio/nature_1.jpg";
+import nature2 from "./assets/portfolio/nature_2.jpg";
+import nature3 from "./assets/portfolio/nature_3.jpg";
 
 export const galleryImages = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1544124094-8aea0374da93",
+    url: portrait1,
     category: "portrait",
     alt: "Portrait Photography"
   },
   {
     id: 2,
-    url: "https://images.unsplash.com/photo-1606143412458-acc5f86de897",
+    url: portrait2,
     category: "portrait",
     alt: "Fashion Portrait"
   },
   {
     id: 3,
-    url: "https://images.unsplash.com/photo-1544954617-f5c6b0d16164",
+    url: nature1,
     category: "nature",
     alt: "Landscape Photography"
   },
   {
     id: 4,
-    url: "https://images.unsplash.com/photo-1624711517157-25991163e537",
+    url: portrait3,
     category: "portrait",
     alt: "Colorful Portrait"
   },
   {
     id: 5,
-    url: "https://images.unsplash.com/photo-1563170446-9c3c0622d8a9",
+    url: portrait4,
     category: "portrait",
     alt: "Beauty Portrait"
   },
   {
     id: 6,
-    url: "https://images.unsplash.com/photo-1534218238612-bace67b05bf2",
+    url: nature2,
     category: "nature",
     alt: "Aerial Landscape"
   },
   {
     id: 7,
-    url: "https://images.unsplash.com/photo-1565660467558-2cc40ad3066b",
+    url: abstract1,
     category: "abstract",
     alt: "Abstract Composition"
   },
   {
     id: 8,
-    url: "https://images.unsplash.com/photo-1533091090875-1ff4acc497dd",
+    url: weeding1,
     category: "wedding",
     alt: "Wedding Rings"
   },
   {
     id: 9,
-    url: "https://images.unsplash.com/photo-1604430456280-43f652c497aa",
+    url: nature3,
     category: "nature",
     alt: "Mountain River"
   },
   {
     id: 10,
-    url: "https://images.unsplash.com/photo-1604017011826-d3b4c23f8914",
+    url: portrait6a,
     category: "wedding",
     alt: "Wedding Couple"
   },
   {
     id: 11,
-    url: "https://images.pexels.com/photos/27523299/pexels-photo-27523299.jpeg",
+    url: portrait5,
     category: "portrait",
     alt: "Professional Headshot"
   },
   {
     id: 12,
-    url: "https://images.unsplash.com/photo-1532272278764-53cd1fe53f72",
+    url: abstract5,
     category: "abstract",
     alt: "Camera Equipment"
   },
   {
     id: 13,
-    url: "https://images.unsplash.com/photo-1573676048035-9c2a72b6a12a",
+    url: weeding2,
     category: "wedding",
     alt: "Wedding Photography"
   },
@@ -91,13 +110,13 @@ export const galleryImages = [
   },
   {
     id: 15,
-    url: "https://images.pexels.com/photos/27919272/pexels-photo-27919272.jpeg",
+    url: abstract4,
     category: "portrait",
     alt: "Elegant Portrait"
   },
   {
     id: 16,
-    url: "https://images.unsplash.com/flagged/photo-1552981941-424aac2b4311",
+    url: weeding3,
     category: "wedding",
     alt: "Romantic Couple"
   },
@@ -109,7 +128,7 @@ export const galleryImages = [
   },
   {
     id: 18,
-    url: "https://images.pexels.com/photos/949224/pexels-photo-949224.jpeg",
+    url: weeding4,
     category: "wedding",
     alt: "Lakeside Wedding"
   },
@@ -121,9 +140,21 @@ export const galleryImages = [
   },
   {
     id: 20,
-    url: "https://images.unsplash.com/photo-1715596802669-fe644878f21b",
+    url: abstract3,
     category: "abstract",
     alt: "Scenic Composition"
+  },
+  {
+    id: 21,
+    url: portrait6b,
+    category: "portrait",
+    alt: "Scenic Composition"
+  },
+  {
+    id: 22,
+    url: weeding5,
+    category: "wedding",
+    alt: "Wedding Photography"
   }
 ];
 
@@ -131,28 +162,28 @@ export const services = [
   {
     id: 1,
     title: "Wedding Session",
-    description: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.",
+    description: "Professional wedding photography capturing candid moments, traditional rituals, and cinematic portraits with creative storytelling and high-resolution quality.",
     icon: "rings",
     image: weddingImg
   },
   {
     id: 2,
     title: "Studio Shooting",
-    description: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.",
+    description: "Creative studio photography and portrait sessions with professional lighting, sharp detailing, and modern editing for premium visual results.",
     icon: "camera",
     image: studioImg
   },
   {
     id: 3,
     title: "Product Shoot",
-    description: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.",
+    description: "High-quality product photography designed for e-commerce, social media marketing, and brand promotion with clean backgrounds and precise lighting.",
     icon: "shopping-bag",
     video: productVid
   },
   {
     id: 4,
     title: "Video Shooting",
-    description: "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla.",
+    description: "Cinematic videography services for weddings, events, and brands with smooth transitions, creative direction, and professional post-production editing.",
     icon: "video",
     video: servicesVid
   }
@@ -161,28 +192,28 @@ export const services = [
 export const testimonials = [
   {
     id: 1,
-    text: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.",
-    author: "George Atkinson",
-    company: "Envato"
+    text: "Your photography beautifully captures the soul of our nation. Through your lens, you have preserved moments that inspire, connect, and celebrate our rich heritage. Your dedication and creativity reflect the true spirit of India. Keep shining and continue telling powerful stories through your art.",
+    author: "Narendra Modi",
+    company: "India"
   },
   {
     id: 2,
-    text: "Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
-    author: "George Atkinson",
-    company: "Envato"
+    text: "I’ve seen a lot of photography, a lot and this is absolutely incredible. Truly tremendous work. The detail, the colors, the energy - it’s fantastic. You have a great eye, maybe one of the best I’ve seen. Keep doing what you’re doing. Very impressive.",
+    author: "Doland Trump",
+    company: "US"
   },
   {
     id: 3,
-    text: "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.",
-    author: "George Atkinson",
-    company: "Envato"
+    text: "Your work through the lens reflects truth and sincerity. Photography is not merely about capturing images, but about capturing the spirit of humanity. If your art serves society and awakens compassion in people’s hearts, then it is truly meaningful. Continue your work with humility and dedication.",
+    author: "GandhiJI",
+    company: "India"
   }
 ];
 
 export const stats = [
   { label: "Awards", value: 12 },
   { label: "Exhibitions", value: 25 },
-  { label: "Projects", value: 150 }
+  { label: "Happy Clients", value: 1000 }
 ];
 
 export const partnerLogos = [
