@@ -19,9 +19,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/95 backdrop-blur-sm py-4' : 'bg-transparent py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/95 backdrop-blur-sm py-4' : 'bg-transparent py-6'
+        }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
@@ -33,13 +32,13 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-10">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
                 className="text-white text-sm font-medium tracking-wide hover:text-gray-300 transition-colors duration-300"
               >
                 {item}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -68,14 +67,14 @@ const Navbar = () => {
           <div className="lg:hidden mt-6 pb-4">
             <div className="flex flex-col space-y-4">
               {menuItems.map((item) => (
-                <a
+                <Link
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  to={item === "HOME" ? "/" : `/${item.toLowerCase()}`}
                   className="text-white text-sm font-medium tracking-wide hover:text-gray-300 transition-colors duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item}
-                </a>
+                </Link>
               ))}
               <Button
                 variant="outline"

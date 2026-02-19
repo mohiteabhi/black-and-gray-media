@@ -22,6 +22,10 @@ import weeding5 from "./assets/portfolio/weeding_5.jpg";
 import nature1 from "./assets/portfolio/nature_1.jpg";
 import nature2 from "./assets/portfolio/nature_2.jpg";
 import nature3 from "./assets/portfolio/nature_3.jpg";
+import pc from "./assets/team/pc.jpg";
+import pc1 from "./assets/team/pc1.jpg";
+import pc2 from "./assets/team/pc2.jpg";
+import mc from "./assets/brands/mc.jpg";
 
 export const galleryImages = [
   {
@@ -158,6 +162,49 @@ export const galleryImages = [
   }
 ];
 
+export const equipment = {
+  cameraBodies: [
+    'Sony A7 III',
+    'Canon Mark IV',
+    'Nikon Z5'
+  ],
+  flashesAndLights: [
+    'Canon ST-E3 Speedlite',
+    'Stella Pro 5000 video light',
+    'Canon 600 EX II-RT Speedlites'
+  ],
+  cameraLenses: [
+    'Sony 28-135mm f4 G OSS',
+    'Sony 100-400mm f4.5-5.6 GM OSS',
+    'Sony 200-600mm f5.6-6.3 G OSS',
+    'Sony 28mm f2.0',
+    'Sony 50mm f1.4 ZA Planar T',
+    'DX Fisheye-Nikkor 10.5mm f/2.8G ED',
+    'AF-S Zoom-Nikkor 17-35mm f/2.8D IF-ED',
+    'Canon 100mm macro',
+    'Canon 70-200mm f/4.0',
+    'Canon 28mm f/1.8'
+  ]
+};
+
+export const team = [
+  {
+    name: 'PC',
+    role: 'role',
+    image: pc
+  },
+  {
+    name: 'PC',
+    role: 'role',
+    image: pc1
+  },
+  {
+    name: 'PC',
+    role: 'role',
+    image: pc2
+  }
+];
+
 export const services = [
   {
     id: 1,
@@ -223,4 +270,60 @@ export const partnerLogos = [
   "https://via.placeholder.com/120x60/333/999?text=Logo+4",
   "https://via.placeholder.com/120x60/333/999?text=Logo+5",
   "https://via.placeholder.com/120x60/333/999?text=Logo+6"
+];
+
+export const features = [
+  {
+    number: '1.',
+    title: 'Extensive Equipment',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet.'
+  },
+  {
+    number: '2.',
+    title: 'Extensive Equipment',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet.'
+  },
+  {
+    number: '3.',
+    title: 'Professional Editing',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet.'
+  },
+  {
+    number: '4.',
+    title: 'Fine Retouching',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet.'
+  }
+];
+
+export const brands = [
+  {
+    brandName: "Manchester United",
+    brandImage: mc,
+    workLink: "https://www.manutd.com"
+  },
+  {
+    brandName: "Gamma",
+    brandImage: "https://www.instagram.com/gamma_wine_and_dine/?hl=en",
+    workLink: "https://unsplash.com"
+  },
+  {
+    brandName: "Nick & Joan",
+    brandImage: "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80",
+    workLink: "https://unsplash.com"
+  },
+  {
+    brandName: "Hudston Smith",
+    brandImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80",
+    workLink: "https://unsplash.com"
+  },
+  {
+    brandName: "Andreas",
+    brandImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80",
+    workLink: "https://unsplash.com"
+  },
+  {
+    brandName: "Paul Studio",
+    brandImage: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400&q=80",
+    workLink: "https://unsplash.com"
+  }
 ];
