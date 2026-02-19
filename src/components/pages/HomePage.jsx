@@ -7,6 +7,7 @@ import PortfolioSection from "../PortfolioSection";
 import TestimonialsSection from "../TestimonialsSection";
 // import PartnersSection from "./components/PartnersSection";
 import StatsSection from "../StatsSection";
+import CTASection from "../CTASection";
 
 function HomePage() {
     return (
@@ -18,6 +19,7 @@ function HomePage() {
         <TestimonialsSection />
         {/* <PartnersSection /> */}
         <StatsSection />
+        <CTASection/>
     </div>
     );
 

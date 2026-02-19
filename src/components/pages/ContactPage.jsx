@@ -78,25 +78,24 @@ const ContactPage = () => {
                         <div className="space-y-10">
                             <div>
                                 <p className="text-white/50 tracking-[0.3em] text-xs uppercase mb-2">Email Us</p>
-                                <a href="mailto:hello@example.com"
+                                <a href="mailto:blackngreymedia@gmail.com"
                                    className="text-white/80 hover:text-[#C89968] transition-colors text-sm border-b border-white/20 hover:border-[#C89968] pb-0.5">
-                                    hello@example.com
+                                    blackngreymedia@gmail.com
                                 </a>
                             </div>
 
                             <div>
                                 <p className="text-white/50 tracking-[0.3em] text-xs uppercase mb-2">Phone Us</p>
-                                <a href="tel:+44123456789"
+                                <a href="tel:+917758990489"
                                    className="text-white/80 hover:text-[#C89968] transition-colors text-sm border-b border-white/20 hover:border-[#C89968] pb-0.5">
-                                    +44123 456 789
+                                    +91 7758990489
                                 </a>
                             </div>
 
                             <div>
                                 <p className="text-white/50 tracking-[0.3em] text-xs uppercase mb-2">Visit Us</p>
                                 <p className="text-white/70 text-sm leading-relaxed">
-                                    121 King Street, Melbourne Victoria<br />
-                                    3000, Australia
+                                    Pune, Maharashtra, India
                                 </p>
                             </div>
 

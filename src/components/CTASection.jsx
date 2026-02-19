@@ -2,8 +2,10 @@ import React from 'react';
 import { Send } from 'lucide-react';
 import { Button } from './ui/button';
 import ctaImg from "@/assets/cta-cover-a.jpg"
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
   return (
     <section 
       className="bg-black py-20 relative min-h-[500px]" 
@@ -23,6 +25,7 @@ const CTASection = () => {
         </p>
         <Button
           variant="outline"
+          onClick={() => navigate("/contact")}
           className="border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-6 text-sm tracking-wide shadow-xl"
         >
           <Send className="w-4 h-4 mr-2" />

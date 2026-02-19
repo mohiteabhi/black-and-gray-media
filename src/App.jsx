@@ -23,7 +23,6 @@ function App() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      <CTASection/>
       <Footer/>
     </Router>
 

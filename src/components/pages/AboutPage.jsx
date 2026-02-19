@@ -5,9 +5,11 @@ import { Camera, Lightbulb, Award, Briefcase, Flag } from 'lucide-react';
 import pc from "../../assets/team/pc.jpg";
 import { equipment } from '../../mockData';
 import { team } from '../../mockData';
+import { useNavigate } from "react-router-dom";
+import CTASection from '../CTASection';
 
 const AboutPage = () => {
-
+  const navigate = useNavigate();
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
       {/* <Header /> */}
@@ -43,59 +45,59 @@ const AboutPage = () => {
 
       {/* Equipment Section */}
       <section className="pt-20 bg-[#0a0a0a]">
-  <div className="container mx-auto px-6">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-white tracking-wide mb-4">MY EQUIPMENTS</h2>
-      <p className="text-white/70 max-w-3xl mx-auto">
-        Here you can find the list of my equipment. The choice of camera depends on the photoshoot type, location, timing, and a lot more. If you have any questions about my equipment, don't hesitate to ask.
-      </p>
-    </div>
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white tracking-wide mb-4">MY EQUIPMENTS</h2>
+            <p className="text-white/70 max-w-3xl mx-auto">
+              Here you can find the list of my equipment. The choice of camera depends on the photoshoot type, location, timing, and a lot more. If you have any questions about my equipment, don't hesitate to ask.
+            </p>
+          </div>
 
-    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      {/* Card 1: Camera Bodies + Flashes and Lights */}
-      <div className="bg-[#0f0f0f] border border-white/5 rounded-lg p-8 shadow-xl shadow-white/30">
-        <h3 className="text-xl font-bold text-white tracking-wider mb-8">
-          CAMERA BODIES
-        </h3>
-        <ul className="space-y-4 mb-12">
-          {equipment.cameraBodies.map((item, idx) => (
-            <li key={idx} className="text-white/70 flex items-center gap-3">
-              <span className="text-white/50">⊙</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-        
-        <h3 className="text-xl font-bold text-white tracking-wider mb-8 mt-8">
-          FLASHES AND LIGHTS
-        </h3>
-        <ul className="space-y-4">
-          {equipment.flashesAndLights.map((item, idx) => (
-            <li key={idx} className="text-white/70 flex items-center gap-3">
-              <span className="text-white/50">⊙</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Card 1: Camera Bodies + Flashes and Lights */}
+            <div className="bg-[#0f0f0f] border border-white/5 rounded-lg p-8 shadow-xl shadow-white/30">
+              <h3 className="text-xl font-bold text-white tracking-wider mb-8">
+                CAMERA BODIES
+              </h3>
+              <ul className="space-y-4 mb-12">
+                {equipment.cameraBodies.map((item, idx) => (
+                  <li key={idx} className="text-white/70 flex items-center gap-3">
+                    <span className="text-white/50">⊙</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-      {/* Card 2: Camera Lenses */}
-      <div className="bg-[#0f0f0f] border border-white/5 rounded-lg p-8 shadow-xl shadow-white/30">
-        <h3 className="text-xl font-bold text-white tracking-wider mb-8">
-          CAMERA LENSES
-        </h3>
-        <ul className="space-y-4">
-          {equipment.cameraLenses.map((item, idx) => (
-            <li key={idx} className="text-white/70 flex items-center gap-3">
-              <span className="text-white/50">⊙</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+              <h3 className="text-xl font-bold text-white tracking-wider mb-8 mt-8">
+                FLASHES AND LIGHTS
+              </h3>
+              <ul className="space-y-4">
+                {equipment.flashesAndLights.map((item, idx) => (
+                  <li key={idx} className="text-white/70 flex items-center gap-3">
+                    <span className="text-white/50">⊙</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Card 2: Camera Lenses */}
+            <div className="bg-[#0f0f0f] border border-white/5 rounded-lg p-8 shadow-xl shadow-white/30">
+              <h3 className="text-xl font-bold text-white tracking-wider mb-8">
+                CAMERA LENSES
+              </h3>
+              <ul className="space-y-4">
+                {equipment.cameraLenses.map((item, idx) => (
+                  <li key={idx} className="text-white/70 flex items-center gap-3">
+                    <span className="text-white/50">⊙</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Team Section */}
       <section className="py-20 bg-[#0a0a0a]">
@@ -122,6 +124,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+      <CTASection />
     </div>
   );
 };

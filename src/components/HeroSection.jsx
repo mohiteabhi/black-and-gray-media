@@ -2,8 +2,10 @@ import React from 'react';
 import { Send } from 'lucide-react';
 import { Button } from './ui/button';
 import heroImage from "@/assets/hero-img-d.jpg";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section id="home" className="min-h-screen bg-black mb-8">
       {/* Mobile Layout - Image Background with Overlay Text */}
@@ -68,6 +70,7 @@ const HeroSection = () => {
             </p>
             <Button
               variant="outline"
+              onClick={() => navigate("/contact")}
               className="border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-6 py-5 text-sm tracking-wide"
             >
               <Send className="w-4 h-4 mr-2" />
@@ -108,6 +111,7 @@ const HeroSection = () => {
             </p>
             <Button
               variant="outline"
+              onClick={() => navigate("/contact")}
               className="border-white text-white hover:bg-white hover:text-black transition-all duration-300 px-8 py-6 text-sm tracking-wide"
             >
               <Send className="w-4 h-4 mr-2" />
