@@ -63,7 +63,11 @@ const HeroSection = () => {
               Hello
             </p>
             <h1 className="text-white text-4xl font-bold mb-4 leading-tight">
-              WE'RE <span className="text-gray-300">BLACK N GREY MEDIA</span>
+              WE'RE{" "}
+              <span style={{ color: "#848484" }}>BLACK</span>
+              <span style={{ color: "#ffffff" }}> N </span>
+              <span style={{ color: "#9ca3af" }}> GREY</span>
+              {" "}MEDIA
             </h1>
             <p className="text-gray-200 text-sm mb-6 leading-relaxed max-w-md mx-auto">
               A creative team of photographers (and filmmakers) capturing portraits, brands, and places. We'd love to create something meaningful with you.
@@ -104,7 +108,11 @@ const HeroSection = () => {
               Hello
             </p>
             <h1 className="text-white text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              WE'RE <span className="text-gray-400">BLACK N GREY MEDIA</span>
+              WE'RE{" "}
+              <span style={{ color: "#848484" }}>BLACK</span>
+              <span style={{ color: "#ffffff" }}> N </span>
+              <span style={{ color: "#9ca3af" }}> GREY</span>
+              {" "}MEDIA
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
               A creative team of photographers (and filmmakers) capturing portraits, brands, and places. We'd love to create something meaningful with you.
