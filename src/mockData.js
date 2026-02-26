@@ -208,17 +208,18 @@ export const team = [
 export const services = [
   {
     id: 1,
-    title: "Wedding Session",
-    description: "Professional wedding photography capturing candid moments, traditional rituals, and cinematic portraits with creative storytelling and high-resolution quality.",
-    icon: "rings",
+    title: "FNB (Food & Beverages)",
+    description: "Professional food and beverage photography capturing appetizing textures, vibrant colors, and styled compositions. Ideal for restaurants, cafes, menus, advertisements, and brand promotions with high-resolution quality.",
+    icon: "utensils",
     image: weddingImg
   },
   {
     id: 2,
-    title: "Studio Shooting",
-    description: "Creative studio photography and portrait sessions with professional lighting, sharp detailing, and modern editing for premium visual results.",
-    icon: "camera",
-    image: studioImg
+    title: "Automotive",
+    description:
+      "Professional automotive photography highlighting design, performance, and fine details. Perfect for car brands, dealerships, advertisements, and promotional campaigns with dynamic lighting and high-resolution clarity.",
+    icon: "car",
+    video: servicesVid,
   },
   {
     id: 3,
