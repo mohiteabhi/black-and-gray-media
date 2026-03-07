@@ -211,7 +211,7 @@ export const services = [
     title: "FNB (Food & Beverages)",
     description: "Professional food and beverage photography capturing appetizing textures, vibrant colors, and styled compositions. Ideal for restaurants, cafes, menus, advertisements, and brand promotions with high-resolution quality.",
     icon: "utensils",
-    image: weddingImg
+    video: productVid
   },
   {
     id: 2,
@@ -226,7 +226,7 @@ export const services = [
     title: "Product Shoot",
     description: "High-quality product photography designed for e-commerce, social media marketing, and brand promotion with clean backgrounds and precise lighting.",
     icon: "shopping-bag",
-    video: productVid
+    image: weddingImg
   },
   {
     id: 4,
