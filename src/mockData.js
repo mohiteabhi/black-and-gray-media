@@ -3,6 +3,7 @@ import weddingImg from "./assets/serviceGrid/service_grid_weeding.png";
 import studioImg from "./assets/serviceGrid/service_grid_studio.png";
 import productVid from "./assets/serviceGrid/services_product.mp4";
 import servicesVid from "./assets/serviceGrid/services_video.mp4";
+import servicesVidInf from "./assets/serviceGrid/services_influenser.mp4";
 import portrait1 from "./assets/portfolio/portrait_1.jpg";
 import portrait2 from "./assets/portfolio/portrait_2.jpg";
 import portrait3 from "./assets/portfolio/portrait_3.jpg";
@@ -208,13 +209,20 @@ export const team = [
 export const services = [
   {
     id: 1,
+    title: "Weeding Shoot",
+    description: "High-quality product photography designed for e-commerce, social media marketing, and brand promotion with clean backgrounds and precise lighting.",
+    icon: "shopping-bag",
+    image: weddingImg
+  },
+  {
+    id: 2,
     title: "FNB (Food & Beverages)",
     description: "Professional food and beverage photography capturing appetizing textures, vibrant colors, and styled compositions. Ideal for restaurants, cafes, menus, advertisements, and brand promotions with high-resolution quality.",
     icon: "utensils",
     video: productVid
   },
   {
-    id: 2,
+    id: 3,
     title: "Automotive",
     description:
       "Professional automotive photography highlighting design, performance, and fine details. Perfect for car brands, dealerships, advertisements, and promotional campaigns with dynamic lighting and high-resolution clarity.",
@@ -222,18 +230,11 @@ export const services = [
     video: servicesVid,
   },
   {
-    id: 3,
-    title: "Product Shoot",
-    description: "High-quality product photography designed for e-commerce, social media marketing, and brand promotion with clean backgrounds and precise lighting.",
-    icon: "shopping-bag",
-    image: weddingImg
-  },
-  {
     id: 4,
-    title: "Video Shooting",
-    description: "Cinematic videography services for weddings, events, and brands with smooth transitions, creative direction, and professional post-production editing.",
+    title: "Influencer & Personal Branding",
+    description: "Professional influencer and personal branding photography capturing authentic moments, unique styles, and engaging content. Ideal for social media, websites, and promotional materials with high-quality visuals.",    
     icon: "video",
-    video: servicesVid
+    video: servicesVidInf
   }
 ];
 
