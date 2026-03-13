@@ -1,11 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send } from 'lucide-react';
 import { Button } from './ui/button';
-import heroImage from "@/assets/hero-img-d.jpg";
+// import heroImage from "@/assets/hero-img-d.jpg";
+import herobackup from "@/assets/hero-img-d.jpg";
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const [heroImage, setHeroImage] = useState(herobackup);
+  const [heroTeamText, setHeroTeamText] = useState("A creative team of photographers (and filmmakers) capturing portraits, brands, and places. We'd love to create something meaningful with you.");
+  useEffect(() => {
+    const fetchHeroImage = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/media");
+        const data = await res.json();
+
+        const hero = data.find(item => item.media_title === "heroImage");
+        const heroText = data.find(item => item.media_title === "heroTeamText");
+
+        if (heroText) {
+          setHeroTeamText(heroText.text);
+          console.log(heroText.text);
+        }
+
+        if (hero) {
+          setHeroImage(hero.url);
+        }
+      } catch (err) {
+        console.error("Error fetching hero image:", err);
+      }
+    };
+
+    fetchHeroImage();
+  }, []);
   return (
     <section id="home" className="min-h-screen bg-black mb-8">
       {/* Mobile Layout - Image Background with Overlay Text */}
@@ -70,7 +97,7 @@ const HeroSection = () => {
               {" "}MEDIA
             </h1>
             <p className="text-gray-200 text-sm mb-6 leading-relaxed max-w-md mx-auto">
-              A creative team of photographers (and filmmakers) capturing portraits, brands, and places. We'd love to create something meaningful with you.
+              {heroTeamText}
             </p>
             <Button
               variant="outline"
@@ -115,7 +142,7 @@ const HeroSection = () => {
               {" "}MEDIA
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              A creative team of photographers (and filmmakers) capturing portraits, brands, and places. We'd love to create something meaningful with you.
+              {heroTeamText}
             </p>
             <Button
               variant="outline"

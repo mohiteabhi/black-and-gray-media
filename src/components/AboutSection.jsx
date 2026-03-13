@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Heart, Camera, ShoppingBag, Video, ArrowRight, Utensils, Car } from 'lucide-react';
 import { services } from '../mockData';
 import heroVideo from '../assets/story_of_time_1.mp4';
-import { useRef, useEffect } from 'react';
+
 import FNBShowcase from './pages/view-services/FNBShowcase';
+import WeddingShowcase from './pages/view-services/WeddingShowcase';
+import AutomotiveShowcase from './pages/view-services/AutomotiveShowcase';
+import VideoShowcase    from './pages/view-services/VideoShowcase';
 
 const iconMap = {
     rings: Heart,
@@ -14,27 +17,34 @@ const iconMap = {
     car: Car
 };
 
+// Map each service to which showcase component to open
+// Matching is done by icon name — adjust if your mockData uses different icons
+const showcaseMap = {
+    utensils:        'fnb',
+    'shopping-bag':  'wedding',
+    car:             'automotive',
+    video:           'video',
+};
+
 const AboutSection = () => {
-    const videoRef = useRef(null);
+    const videoRef      = useRef(null);
     const mobileVideoRef = useRef(null);
-    const [showFNB, setShowFNB] = useState(false);
+    const [activeShowcase, setActiveShowcase] = useState(null); // 'fnb' | 'wedding' | 'automotive' | 'video' | null
 
     useEffect(() => {
         if (videoRef.current)       videoRef.current.playbackRate = 0.6;
         if (mobileVideoRef.current) mobileVideoRef.current.playbackRate = 0.6;
     }, []);
 
-    const isFNB = (service) =>
-        service.icon === 'utensils' ||
-        service.title?.toLowerCase().includes('fnb') ||
-        service.title?.toLowerCase().includes('food') ||
-        service.title?.toLowerCase().includes('f&b');
+    const openShowcase = (showcaseKey) => setActiveShowcase(showcaseKey);
+    const closeShowcase = () => setActiveShowcase(null);
 
     const ServiceLink = ({ service }) => {
-        if (isFNB(service)) {
+        const key = showcaseMap[service.icon];
+        if (key) {
             return (
                 <button
-                    onClick={() => setShowFNB(true)}
+                    onClick={() => openShowcase(key)}
                     className="text-white text-xs tracking-widest uppercase inline-flex items-center hover:text-gray-300 transition-colors duration-300 border-b border-white pb-1 self-start bg-transparent cursor-pointer"
                     style={{ fontFamily: 'inherit' }}
                 >
@@ -161,19 +171,28 @@ const AboutSection = () => {
             </section>
 
             {/*
-             * FNBShowcase sits OUTSIDE the section, rendered as a fixed full-screen
-             * overlay. The landing page stays mounted underneath — no scroll fighting,
-             * no page replacement, no body lock needed.
+             * All showcases rendered as fixed full-screen overlays.
+             * The landing page stays mounted underneath — no scroll fighting.
+             * Only the active one is shown at a time.
              */}
-            {showFNB && (
-                <div style={{
-                    position: 'fixed',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    zIndex: 9999,
-                    overflowY: 'auto',
-                    background: '#000',
-                }}>
-                    <FNBShowcase onBack={() => setShowFNB(false)} />
+            {activeShowcase === 'fnb' && (
+                <div style={{ position: 'fixed', inset: 0, zIndex: 9999, overflowY: 'auto', background: '#000' }}>
+                    <FNBShowcase onBack={closeShowcase} />
+                </div>
+            )}
+            {activeShowcase === 'wedding' && (
+                <div style={{ position: 'fixed', inset: 0, zIndex: 9999, overflowY: 'auto', background: '#0d0805' }}>
+                    <WeddingShowcase onBack={closeShowcase} />
+                </div>
+            )}
+            {activeShowcase === 'automotive' && (
+                <div style={{ position: 'fixed', inset: 0, zIndex: 9999, overflowY: 'auto', background: '#020408' }}>
+                    <AutomotiveShowcase onBack={closeShowcase} />
+                </div>
+            )}
+            {activeShowcase === 'video' && (
+                <div style={{ position: 'fixed', inset: 0, zIndex: 9999, overflowY: 'auto', background: '#060300' }}>
+                    <VideoShowcase onBack={closeShowcase} />
                 </div>
             )}
         </>
