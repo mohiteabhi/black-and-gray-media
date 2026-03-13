@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Link } from "react-router-dom";
+import brandLogo from '@/assets/brands/black-n-gray.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +27,19 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold tracking-wider text-white">
-            LOGO
+           <div className="flex items-center">
+            {!logoError ? (
+              <img
+                src={brandLogo}
+                alt="Black N Gray"
+                onError={() => setLogoError(true)}
+                style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+              />
+            ) : (
+              <span className="text-2xl font-bold tracking-wider text-white">
+                BLACK N GRAY
+              </span>
+            )}
           </div>
 
           {/* Desktop Menu */}
