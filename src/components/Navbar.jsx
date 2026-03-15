@@ -3,11 +3,28 @@ import { Menu, X, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Link } from "react-router-dom";
 import brandLogo from '@/assets/brands/black-n-gray.png';
+import API_CONFIG, { MEDIA_IDS } from '../config/api';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [logoSrc, setLogoSrc] = useState("");
   const [logoError, setLogoError] = useState(false);
+
+useEffect(() => {
+    const fetchLogo = async () => {
+      try {
+        const res  = await fetch(API_CONFIG.endpoints.media.list);
+        const data = await res.json();
+        const logo = data.find(item => item.id === MEDIA_IDS.global.logo);
+        if (logo?.url) setLogoSrc(logo.url);
+      } catch (err) {
+        // Silently fall back to bundled asset
+        console.warn("Could not fetch logo from API, using local asset.", err);
+      }
+    };
+    fetchLogo();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +47,7 @@ const Navbar = () => {
            <div className="flex items-center">
             {!logoError ? (
               <img
-                src={brandLogo}
+                src={logoSrc}
                 alt="Black N Gray"
                 onError={() => setLogoError(true)}
                 style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
