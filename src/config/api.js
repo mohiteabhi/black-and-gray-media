@@ -30,6 +30,7 @@ export const GALLERY_SECTION_IDS = {
   fnb: 6,
   automotive: 7,
   influenser: 8,
+  portfolio: 3,
 };
 
 // Media IDs — one source of truth for all section editors
@@ -55,6 +56,9 @@ export const MEDIA_IDS = {
   },
   global: {
     logo: 6,     // brand logo used in Navbar
+  },
+  testimonials: {
+    section: 19, // testimonialSection — JSON array of reviews
   },
 };
 

@@ -8,6 +8,8 @@ import WeddingGalleryEditor from "../admin/editors/WeddingGalleryEditor";
 import FNBGalleryEditor from "../admin/editors/FNBGalleryEditor";
 import AutomotiveGalleryEditor from "../admin/editors/AutomotiveGalleryEditor";
 import InfluencerGalleryEditor from "../admin/editors/Influencergalleryeditor";
+import PortfolioGalleryEditor from "../admin/editors/PortfolioGalleryEditor";
+import TestimonialsEditor from "../admin/editors/TestimonialsEditor";
 
 const CMS_STRUCTURE = [
   {
@@ -18,12 +20,14 @@ const CMS_STRUCTURE = [
       {
         name: "About Section", slug: "about", component: <AboutSectionEditor />,
         children: [
-          { name: "Wedding Gallery",    slug: "wedding-gallery",    component: <WeddingGalleryEditor /> },
-          { name: "FNB Gallery",        slug: "fnb-gallery",        component: <FNBGalleryEditor /> },
-          { name: "Automotive Gallery", slug: "auto-gallery",       component: <AutomotiveGalleryEditor /> },
+          { name: "Wedding Gallery", slug: "wedding-gallery", component: <WeddingGalleryEditor /> },
+          { name: "FNB Gallery", slug: "fnb-gallery", component: <FNBGalleryEditor /> },
+          { name: "Automotive Gallery", slug: "auto-gallery", component: <AutomotiveGalleryEditor /> },
           { name: "Influencer Gallery", slug: "influencer-gallery", component: <InfluencerGalleryEditor /> },
         ],
       },
+      { name: "Portfolio Section", slug: "portfolio", component: <PortfolioGalleryEditor /> },
+      { name: "Testimonials", slug: "testimonials", component: <TestimonialsEditor /> },
     ],
   },
 ];
@@ -52,9 +56,9 @@ export default function DashboardPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const [activePageSlug, setActivePageSlug]       = useState(CMS_STRUCTURE[0].slug);
+  const [activePageSlug, setActivePageSlug] = useState(CMS_STRUCTURE[0].slug);
   const [activeSectionSlug, setActiveSectionSlug] = useState(CMS_STRUCTURE[0].sections[0].slug);
-  const [sidebarOpen, setSidebarOpen]             = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const activePage = CMS_STRUCTURE.find((p) => p.slug === activePageSlug);
   // Search top-level sections and their children
