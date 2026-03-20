@@ -3,6 +3,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import HeroSectionEditor from "../admin/editors/HeroSectionEditor";
+import AboutSectionEditor from "../admin/editors/AboutSectionEditor";
+import WeddingGalleryEditor from "../admin/editors/WeddingGalleryEditor";
+import FNBGalleryEditor from "../admin/editors/FNBGalleryEditor";
+import AutomotiveGalleryEditor from "../admin/editors/AutomotiveGalleryEditor";
+import InfluencerGalleryEditor from "../admin/editors/Influencergalleryeditor";
 
 const CMS_STRUCTURE = [
   {
@@ -10,22 +15,34 @@ const CMS_STRUCTURE = [
     slug: "home",
     sections: [
       { name: "Hero Section", slug: "hero", component: <HeroSectionEditor /> },
+      {
+        name: "About Section", slug: "about", component: <AboutSectionEditor />,
+        children: [
+          { name: "Wedding Gallery",    slug: "wedding-gallery",    component: <WeddingGalleryEditor /> },
+          { name: "FNB Gallery",        slug: "fnb-gallery",        component: <FNBGalleryEditor /> },
+          { name: "Automotive Gallery", slug: "auto-gallery",       component: <AutomotiveGalleryEditor /> },
+          { name: "Influencer Gallery", slug: "influencer-gallery", component: <InfluencerGalleryEditor /> },
+        ],
+      },
     ],
   },
 ];
 
-function NavItem({ label, active, onClick, indent = false }) {
+function NavItem({ label, active, onClick, indent = false, isChild = false }) {
   return (
     <button
       onClick={onClick}
       className={[
-        "w-full text-left px-3 py-2.5 rounded-lg text-xs transition-all",
-        indent ? "pl-6" : "",
+        "w-full text-left rounded-lg text-xs transition-all",
+        isChild ? "pl-9 py-2" : indent ? "pl-6 py-2.5" : "px-3 py-2.5",
         active
           ? "bg-blue-500/15 border border-blue-500/25 text-blue-300 font-semibold"
-          : "text-white/40 hover:text-white/70 hover:bg-white/[0.04] border border-transparent",
+          : isChild
+            ? "text-white/30 hover:text-white/60 hover:bg-white/[0.03] border border-transparent"
+            : "text-white/40 hover:text-white/70 hover:bg-white/[0.04] border border-transparent",
       ].join(" ")}
     >
+      {isChild && <span className="mr-1.5 text-white/20">└</span>}
       {label}
     </button>
   );
@@ -39,8 +56,23 @@ export default function DashboardPage() {
   const [activeSectionSlug, setActiveSectionSlug] = useState(CMS_STRUCTURE[0].sections[0].slug);
   const [sidebarOpen, setSidebarOpen]             = useState(false);
 
-  const activePage    = CMS_STRUCTURE.find((p) => p.slug === activePageSlug);
-  const activeSection = activePage?.sections.find((s) => s.slug === activeSectionSlug);
+  const activePage = CMS_STRUCTURE.find((p) => p.slug === activePageSlug);
+  // Search top-level sections and their children
+  const activeSection = (() => {
+    if (!activePage) return null;
+    for (const section of activePage.sections) {
+      if (section.slug === activeSectionSlug) return section;
+      if (section.children) {
+        const child = section.children.find(c => c.slug === activeSectionSlug);
+        if (child) return child;
+      }
+    }
+    return null;
+  })();
+  // Find parent section if active section is a child
+  const activeParent = activePage?.sections.find(
+    s => s.children?.some(c => c.slug === activeSectionSlug)
+  ) ?? null;
 
   function handleLogout() {
     logout();
@@ -69,13 +101,25 @@ export default function DashboardPage() {
               {page.page}
             </p>
             {page.sections.map((section) => (
-              <NavItem
-                key={section.slug}
-                label={section.name}
-                indent
-                active={activePageSlug === page.slug && activeSectionSlug === section.slug}
-                onClick={() => handleSectionSelect(page.slug, section.slug)}
-              />
+              <div key={section.slug}>
+                <NavItem
+                  label={section.name}
+                  indent
+                  active={activePageSlug === page.slug && activeSectionSlug === section.slug}
+                  onClick={() => handleSectionSelect(page.slug, section.slug)}
+                />
+                {/* Children — shown indented under parent, always visible */}
+                {section.children?.map((child) => (
+                  <NavItem
+                    key={child.slug}
+                    label={child.name}
+                    indent
+                    isChild
+                    active={activePageSlug === page.slug && activeSectionSlug === child.slug}
+                    onClick={() => handleSectionSelect(page.slug, child.slug)}
+                  />
+                ))}
+              </div>
             ))}
           </div>
         ))}
@@ -155,6 +199,12 @@ export default function DashboardPage() {
 
           <span className="text-xs text-white/25 hidden sm:inline">{activePage?.page}</span>
           <span className="text-white/15 text-xs hidden sm:inline">›</span>
+          {activeParent && (
+            <>
+              <span className="text-xs text-white/25 hidden sm:inline">{activeParent.name}</span>
+              <span className="text-white/15 text-xs hidden sm:inline">›</span>
+            </>
+          )}
           <span className="text-xs text-white/60 font-medium truncate">{activeSection?.name}</span>
 
           {/* Live badge */}
@@ -170,11 +220,19 @@ export default function DashboardPage() {
 
           {/* Section header */}
           <div className="mb-6 lg:mb-8">
-            <div className="flex items-center gap-2 mb-1">
+            <div className="flex items-center gap-2 mb-1 flex-wrap">
               <span className="text-[10px] font-bold tracking-widest uppercase text-white/20 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded-md">
                 {activePage?.page}
               </span>
               <span className="text-white/15 text-xs">›</span>
+              {activeParent && (
+                <>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-white/20 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded-md">
+                    {activeParent.name}
+                  </span>
+                  <span className="text-white/15 text-xs">›</span>
+                </>
+              )}
             </div>
             <h1 className="text-xl lg:text-2xl font-bold text-white/90 tracking-tight">{activeSection?.name}</h1>
             <p className="text-xs lg:text-sm text-white/30 mt-1">
