@@ -1,3 +1,4 @@
+// src/components/TestimonialsSection.jsx
 import React, { useState, useEffect } from 'react';
 import { Quote } from 'lucide-react';
 import API_CONFIG, { MEDIA_IDS } from '../config/api';
@@ -70,24 +71,25 @@ const TestimonialsSection = () => {
           </h2>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Grid — 1 col mobile, 2 col tablet, 3 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {loading
             ? [...Array(3)].map((_, i) => <SkeletonCard key={i} />)
             : testimonials.map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="bg-zinc-800 p-8 rounded-lg hover:bg-zinc-700 transition-all duration-300"
+                  className="bg-zinc-800 p-6 sm:p-8 rounded-lg hover:bg-zinc-700 transition-all duration-300 flex flex-col"
                 >
-                  <Quote className="w-10 h-10 text-white mb-6" />
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-white mb-5 shrink-0" />
+                  {/* break-words prevents long unbroken strings from overflowing */}
+                  <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base break-words overflow-hidden flex-1">
                     {testimonial.text}
                   </p>
-                  <div className="border-t border-gray-700 pt-6">
-                    <p className="text-white font-bold uppercase text-sm tracking-wide">
+                  <div className="border-t border-gray-700 pt-5 mt-auto">
+                    <p className="text-white font-bold uppercase text-sm tracking-wide break-words">
                       {testimonial.author}
                     </p>
-                    <p className="text-gray-500 text-sm mt-1">
+                    <p className="text-gray-500 text-sm mt-1 break-words">
                       {testimonial.company}
                     </p>
                   </div>

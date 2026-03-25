@@ -60,6 +60,13 @@ export const MEDIA_IDS = {
   testimonials: {
     section: 19, // testimonialSection — JSON array of reviews
   },
+  cta: {
+    text: 20,  // ctaText  — JSON { heading, text }
+    bg: 21,  // ctaBG    — background image/video url
+  },
+  footer: {
+    content: 22,  // footerContent — JSON { tagline, contact: [{ email, phoneNumber, location }] }
+  },
 };
 
 export default API_CONFIG;

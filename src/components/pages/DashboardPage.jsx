@@ -10,6 +10,8 @@ import AutomotiveGalleryEditor from "../admin/editors/AutomotiveGalleryEditor";
 import InfluencerGalleryEditor from "../admin/editors/Influencergalleryeditor";
 import PortfolioGalleryEditor from "../admin/editors/PortfolioGalleryEditor";
 import TestimonialsEditor from "../admin/editors/TestimonialsEditor";
+import CTASectionEditor from "../admin/editors/CTASectionEditor";
+import FooterEditor from "../admin/editors/Footereditor";
 
 const CMS_STRUCTURE = [
   {
@@ -28,6 +30,8 @@ const CMS_STRUCTURE = [
       },
       { name: "Portfolio Section", slug: "portfolio", component: <PortfolioGalleryEditor /> },
       { name: "Testimonials", slug: "testimonials", component: <TestimonialsEditor /> },
+      { name: "CTA Section", slug: "cta", component: <CTASectionEditor /> },
+      { name: "Footer", slug: "footer", component: <FooterEditor /> }
     ],
   },
 ];
