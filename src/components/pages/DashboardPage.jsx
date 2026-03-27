@@ -13,6 +13,7 @@ import TestimonialsEditor from "../admin/editors/TestimonialsEditor";
 import CTASectionEditor from "../admin/editors/CTASectionEditor";
 import FooterEditor from "../admin/editors/Footereditor";
 
+
 const CMS_STRUCTURE = [
   {
     page: "Home",
