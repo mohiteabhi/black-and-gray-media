@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 import HeroSectionEditor from "../admin/editors/HeroSectionEditor";
 import AboutSectionEditor from "../admin/editors/AboutSectionEditor";
 import WeddingGalleryEditor from "../admin/editors/WeddingGalleryEditor";
-import FNBGalleryEditor from "../admin/editors/FNBGalleryEditor";
+import FNBGalleryEditor from "../admin/editors/temp";
 import AutomotiveGalleryEditor from "../admin/editors/AutomotiveGalleryEditor";
 import InfluencerGalleryEditor from "../admin/editors/InfluencerGalleryEditor";
 import PortfolioGalleryEditor from "../admin/editors/PortfolioGalleryEditor";
