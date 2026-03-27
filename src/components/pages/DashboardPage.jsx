@@ -7,11 +7,11 @@ import AboutSectionEditor from "../admin/editors/AboutSectionEditor";
 import WeddingGalleryEditor from "../admin/editors/WeddingGalleryEditor";
 import FNBGalleryEditor from "../admin/editors/FNBGalleryEditor";
 import AutomotiveGalleryEditor from "../admin/editors/AutomotiveGalleryEditor";
-import InfluencerGalleryEditor from "../admin/editors/Influencergalleryeditor";
+import InfluencerGalleryEditor from "../admin/editors/InfluencerGalleryEditor";
 import PortfolioGalleryEditor from "../admin/editors/PortfolioGalleryEditor";
 import TestimonialsEditor from "../admin/editors/TestimonialsEditor";
 import CTASectionEditor from "../admin/editors/CTASectionEditor";
-import FooterEditor from "../admin/editors/Footereditor";
+import FooterEditor from "../admin/editors/FooterEditor";
 
 
 const CMS_STRUCTURE = [
