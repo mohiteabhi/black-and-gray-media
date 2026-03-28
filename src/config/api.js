@@ -31,6 +31,7 @@ export const GALLERY_SECTION_IDS = {
   automotive: 7,
   influenser: 8,
   portfolio: 3,
+  team: 14
 };
 
 // Media IDs — one source of truth for all section editors
@@ -67,6 +68,12 @@ export const MEDIA_IDS = {
   footer: {
     content: 22,  // footerContent — JSON { tagline, contact: [{ email, phoneNumber, location }] }
   },
+  aboutPage: {
+    myself:    23,  // aboutMyself — JSON [{ name, role, aboutMe, wordsBy }]
+    pic:       24,  // myPic      — photographer image url
+    equipment: 25,  // myGears    — JSON [{ header, desc, gears: [{ eqName, items[] }] }]
+    myTeam:    26,  // myTeam     — JSON [{ id, name, role }] — id matches gallery record id
+  }
 };
 
 export default API_CONFIG;

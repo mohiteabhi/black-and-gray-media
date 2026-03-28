@@ -12,6 +12,9 @@ import PortfolioGalleryEditor from "../admin/editors/PortfolioGalleryEditor";
 import TestimonialsEditor from "../admin/editors/TestimonialsEditor";
 import CTASectionEditor from "../admin/editors/CTASectionEditor";
 import FooterEditor from "../admin/editors/FooterEditor";
+import AboutHeroEditor from "../admin/editors/AboutHeroEditor";
+import EquipmentEditor from "../admin/editors/EquipmentEditor";
+import TeamEditor from "../admin/editors/TeamEditor";
 
 
 const CMS_STRUCTURE = [
@@ -35,6 +38,15 @@ const CMS_STRUCTURE = [
       { name: "Testimonials", slug: "testimonials", component: <TestimonialsEditor /> },
       { name: "CTA Section", slug: "cta", component: <CTASectionEditor /> },
       { name: "Footer", slug: "footer", component: <FooterEditor /> },
+    ],
+  },
+  {
+    page: "About",
+    slug: "about-page",
+    sections: [
+      { name: "Hero Section",      slug: "about-hero",      component: <AboutHeroEditor /> },
+      { name: "Equipment Section", slug: "about-equipment", component: <EquipmentEditor /> },
+      { name: "Team Section",      slug: "about-team",      component: <TeamEditor /> },
     ],
   },
 ];

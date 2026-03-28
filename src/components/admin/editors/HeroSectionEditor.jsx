@@ -223,7 +223,7 @@ export default function HeroSectionEditor() {
 
       {/* ── 1. Navbar Logo ──────────────────────────────────────────────────── */}
       <Field
-        label="Navbar Logo"
+        label="Brand Logo"
         hint="Top-left of every page · PNG with transparent background recommended"
         status={logoStatus}
       >
