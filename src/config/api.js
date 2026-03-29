@@ -77,6 +77,7 @@ export const MEDIA_IDS = {
   services: {
     featuresText: 27, // features      — JSON [{ featureName, description }]
     featureImage: 28, // featureImage  — "Professional Photography" image url
+    serviceBg: 29,
   },
 };
 

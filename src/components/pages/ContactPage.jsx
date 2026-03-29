@@ -1,5 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, Mail, Phone, MapPin, Award, Lightbulb, Briefcase, Send, Instagram, Youtube, Facebook, Globe, Twitter } from 'lucide-react';
+import API_CONFIG, { MEDIA_IDS } from '../../config/api';
+
+const FOOTER_ID = MEDIA_IDS.footer.content;
+
+const FALLBACK = {
+    tagline: "Let's create and capture beautiful memories together through heartfelt wedding photography and cinematic storytelling designed to preserve your most meaningful moments.",
+    email: "blackngreymedia@gmail.com",
+    phone: "+91 7758990489",
+    location: "Pune, Maharashtra, India",
+};
+
+function safeParseFooter(raw) {
+    try {
+        let str = raw.trim();
+        if (str.startsWith("'") && str.endsWith("'")) str = str.slice(1, -1);
+        let parsed = JSON.parse(str);
+        while (typeof parsed === "string") parsed = JSON.parse(parsed);
+        const obj = Array.isArray(parsed) ? parsed[0] : parsed;
+        const contact = Array.isArray(obj?.contact) ? obj.contact[0] : obj?.contact ?? {};
+        return {
+            email: contact?.email || FALLBACK.email,
+            phone: contact?.phoneNumber || FALLBACK.phone,
+            location: contact?.location || FALLBACK.location,
+        };
+    } catch (_) {
+        return FALLBACK;
+    }
+}
 
 const stats = [
     { number: '23', label: 'AWARDS', icon: Award },
@@ -8,14 +36,17 @@ const stats = [
 ];
 
 const socialLinks = [
-    { icon: Youtube,    href: '#' },
-    { icon: Twitter,    href: '#' },
-    { icon: Instagram,  href: '#' },
-    { icon: Globe,  href: '#' },
-    { icon: Facebook,   href: '#' },
+    { icon: Youtube, href: '#' },
+    { icon: Twitter, href: '#' },
+    { icon: Instagram, href: '#' },
+    { icon: Globe, href: '#' },
+    { icon: Facebook, href: '#' },
 ];
 
 const ContactPage = () => {
+    const [email, setEmail] = useState(FALLBACK.email);
+    const [phone, setPhone] = useState(FALLBACK.phone);
+    const [location, setLocation] = useState(FALLBACK.location);
     const [formData, setFormData] = useState({
         firstName: '', lastName: '',
         email: '', phone: '',
@@ -31,6 +62,28 @@ const ContactPage = () => {
         e.preventDefault();
         console.log('Form submitted:', formData);
     };
+
+      useEffect(() => {
+        async function fetchFooterData() {
+          try {
+            const res  = await fetch(API_CONFIG.endpoints.media.list);
+            const data = await res.json();
+    
+    
+            // Footer content
+            const footerRecord = data.find(item => item.id === FOOTER_ID);
+            if (footerRecord) {
+              const parsed = safeParseFooter(footerRecord.text);
+              setEmail(parsed.email);
+              setPhone(parsed.phone);
+              setLocation(parsed.location);
+            }
+          } catch (err) {
+            console.warn("Could not fetch footer data, using fallback.", err);
+          }
+        }
+        fetchFooterData();
+      }, []);
 
     return (
         <div className="bg-[#0a0a0a] min-h-screen font-sans">
@@ -79,23 +132,23 @@ const ContactPage = () => {
                             <div>
                                 <p className="text-white/50 tracking-[0.3em] text-xs uppercase mb-2">Email Us</p>
                                 <a href="mailto:blackngreymedia@gmail.com"
-                                   className="text-white/80 hover:text-[#C89968] transition-colors text-sm border-b border-white/20 hover:border-[#C89968] pb-0.5">
-                                    blackngreymedia@gmail.com
+                                    className="text-white/80 hover:text-[#C89968] transition-colors text-sm border-b border-white/20 hover:border-[#C89968] pb-0.5">
+                                    {email}
                                 </a>
                             </div>
 
                             <div>
                                 <p className="text-white/50 tracking-[0.3em] text-xs uppercase mb-2">Phone Us</p>
                                 <a href="tel:+917758990489"
-                                   className="text-white/80 hover:text-[#C89968] transition-colors text-sm border-b border-white/20 hover:border-[#C89968] pb-0.5">
-                                    +91 7758990489
+                                    className="text-white/80 hover:text-[#C89968] transition-colors text-sm border-b border-white/20 hover:border-[#C89968] pb-0.5">
+                                    {phone}
                                 </a>
                             </div>
 
                             <div>
                                 <p className="text-white/50 tracking-[0.3em] text-xs uppercase mb-2">Visit Us</p>
                                 <p className="text-white/70 text-sm leading-relaxed">
-                                    Pune, Maharashtra, India
+                                    {location}
                                 </p>
                             </div>
 

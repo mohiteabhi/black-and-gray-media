@@ -6,6 +6,7 @@
 //                                  [{ featureName, description }, …]
 //   Media id=28 (featureImage)  → url field stores the "Professional Photography"
 //                                  image shown beside the features list.
+//   Media id=29 (serviceBg)     → url field stores the hero background image.
 //
 // Actions:
 //   • Add feature    → append entry to JSON, PATCH /media/27
@@ -17,8 +18,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { patchMediaText, uploadMedia } from "../../../services/mediaService";
 import API_CONFIG, { MEDIA_IDS } from "../../../config/api";
 
-const FEATURES_MEDIA_ID = MEDIA_IDS.services.featuresText; // 27
-const IMAGE_MEDIA_ID    = MEDIA_IDS.services.featureImage;  // 28
+const FEATURES_MEDIA_ID  = MEDIA_IDS.services.featuresText; // 27
+const IMAGE_MEDIA_ID     = MEDIA_IDS.services.featureImage;  // 28
+const SERVICE_BG_MEDIA_ID = MEDIA_IDS.services.serviceBg;   // 29
 
 const NAME_MAX = 80;
 const DESC_MAX = 300;
@@ -232,11 +234,12 @@ function ImageUploader({ currentUrl, mediaId }) {
 // ── Main editor ──────────────────────────────────────────────────────────────
 
 export default function FeaturesEditor() {
-  const [loading,     setLoading]    = useState(true);
-  const [fetchError,  setFetchError] = useState(null);
-  const [features,    setFeatures]   = useState([]);
-  const [imageUrl,    setImageUrl]   = useState(null);
-  const [saveStatus,  setSaveStatus] = useState(null);
+  const [loading,      setLoading]     = useState(true);
+  const [fetchError,   setFetchError]  = useState(null);
+  const [features,     setFeatures]    = useState([]);
+  const [imageUrl,     setImageUrl]    = useState(null);
+  const [serviceBgUrl, setServiceBgUrl] = useState(null);
+  const [saveStatus,   setSaveStatus]  = useState(null);
 
   useEffect(() => { load(); }, []);
 
@@ -248,12 +251,14 @@ export default function FeaturesEditor() {
       if (!res.ok) throw new Error(`Media fetch failed (${res.status})`);
       const data = await res.json();
 
-      const featRecord  = data.find(i => i.id === FEATURES_MEDIA_ID);
-      const imageRecord = data.find(i => i.id === IMAGE_MEDIA_ID);
+      const featRecord   = data.find(i => i.id === FEATURES_MEDIA_ID);
+      const imageRecord  = data.find(i => i.id === IMAGE_MEDIA_ID);
+      const bgRecord     = data.find(i => i.id === SERVICE_BG_MEDIA_ID);
 
       const parsed = safeParse(featRecord?.text, []);
       setFeatures(Array.isArray(parsed) ? parsed : []);
       setImageUrl(imageRecord?.url || null);
+      setServiceBgUrl(bgRecord?.url || null);
     } catch (err) {
       setFetchError(err.message);
     } finally {
@@ -335,12 +340,23 @@ export default function FeaturesEditor() {
   return (
     <div className="flex flex-col gap-8">
 
-      {/* ── Section image ── */}
+      {/* ── Hero background image ── */}
+      <div className="flex flex-col gap-3 p-4 rounded-2xl border border-white/[0.07] bg-white/[0.015]">
+        <div>
+          <p className="text-xs font-semibold tracking-widest uppercase text-white/50">Hero Background</p>
+          <p className="text-[11px] text-white/25 mt-0.5">
+            The parallax background shown in the Services page hero section.
+          </p>
+        </div>
+        <ImageUploader currentUrl={serviceBgUrl} mediaId={SERVICE_BG_MEDIA_ID} />
+      </div>
+
+      {/* ── Feature image ── */}
       <div className="flex flex-col gap-3 p-4 rounded-2xl border border-white/[0.07] bg-white/[0.015]">
         <div>
           <p className="text-xs font-semibold tracking-widest uppercase text-white/50">Feature Image</p>
           <p className="text-[11px] text-white/25 mt-0.5">
-            The "Professional Photography" photo shown beside the features list (media id {IMAGE_MEDIA_ID}).
+            The "Professional Photography" photo shown beside the features list.
           </p>
         </div>
         <ImageUploader currentUrl={imageUrl} mediaId={IMAGE_MEDIA_ID} />
@@ -353,7 +369,7 @@ export default function FeaturesEditor() {
           <div>
             <p className="text-xs font-semibold tracking-widest uppercase text-white/50">Features List</p>
             <p className="text-[11px] text-white/25 mt-0.5">
-              Add, edit or remove features (media id {FEATURES_MEDIA_ID}).
+              Add, edit or remove features.
             </p>
           </div>
           <button

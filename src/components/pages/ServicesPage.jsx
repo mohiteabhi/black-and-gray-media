@@ -42,6 +42,7 @@ const ServicesPage = () => {
     const [activeShowcase, setActiveShowcase] = useState(null);
     const [features, setFeatures]             = useState(mockFeatures);
     const [featureImage, setFeatureImage]      = useState(null);
+    const [serviceBg, setServiceBg]           = useState(null);
 
     // ── Parse JSON safely ────────────────────────────────────────────────────
     function safeParse(raw, fallback) {
@@ -97,6 +98,9 @@ const ServicesPage = () => {
                 const imgRecord = data.find(i => i.id === MEDIA_IDS.services.featureImage);
                 if (imgRecord?.url) setFeatureImage(imgRecord.url);
 
+                const serviceBgRecord = data.find(i => i.id === MEDIA_IDS.services.serviceBg);
+                if (serviceBgRecord?.url) setServiceBg(serviceBgRecord.url);
+
             } catch (err) {
                 console.error("Error fetching services data:", err);
             }
@@ -136,7 +140,7 @@ const ServicesPage = () => {
                 {/* ── Hero Section ── */}
                 <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${servicebg})`, backgroundAttachment: 'fixed', backgroundPosition: 'center top' }} />
+                        style={{ backgroundImage: `url(${serviceBg})`, backgroundAttachment: 'fixed', backgroundPosition: 'center top' }} />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black" />
                     <div className="relative z-10 text-center px-6 mb-0 -translate-y-12">
                         <h1 className="text-7xl md:text-8xl font-bold text-white tracking-wide mb-4 leading-tight">
