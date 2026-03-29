@@ -15,6 +15,7 @@ import FooterEditor from "../admin/editors/FooterEditor";
 import AboutHeroEditor from "../admin/editors/AboutHeroEditor";
 import EquipmentEditor from "../admin/editors/EquipmentEditor";
 import TeamEditor from "../admin/editors/TeamEditor";
+import FeaturesEditor from "../admin/editors/FeaturesEditor";
 
 
 const CMS_STRUCTURE = [
@@ -47,6 +48,13 @@ const CMS_STRUCTURE = [
       { name: "Hero Section",      slug: "about-hero",      component: <AboutHeroEditor /> },
       { name: "Equipment Section", slug: "about-equipment", component: <EquipmentEditor /> },
       { name: "Team Section",      slug: "about-team",      component: <TeamEditor /> },
+    ],
+  },
+  {
+    page: "Services",
+    slug: "services-page",
+    sections: [
+      { name: "Features Section", slug: "services-features", component: <FeaturesEditor /> },
     ],
   },
 ];

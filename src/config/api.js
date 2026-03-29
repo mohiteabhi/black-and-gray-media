@@ -73,7 +73,11 @@ export const MEDIA_IDS = {
     pic:       24,  // myPic      — photographer image url
     equipment: 25,  // myGears    — JSON [{ header, desc, gears: [{ eqName, items[] }] }]
     myTeam:    26,  // myTeam     — JSON [{ id, name, role }] — id matches gallery record id
-  }
+  },
+  services: {
+    featuresText: 27, // features      — JSON [{ featureName, description }]
+    featureImage: 28, // featureImage  — "Professional Photography" image url
+  },
 };
 
 export default API_CONFIG;
